@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Menzio - متجر ملابس داخلية رجالية أنيقة ومريحة.">
+  <title>Menzio | ملابس داخلية رجالية</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#home">MENZIO</a>
+      <nav aria-label="التنقل الرئيسي">
+        <a href="#products">المنتجات</a>
+        <a href="#about">عن Menzio</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+      <button class="cart-button" id="cartButton" aria-label="فتح السلة">السلة <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">MENZIO • MEN'S ESSENTIALS</p>
+          <h1>راحة يومية.<br><span>أسلوب بلا تعقيد.</span></h1>
+          <p class="hero-text">اكتشف تشكيلة Menzio من الملابس الداخلية الرجالية المصممة للراحة، الحركة والأناقة.</p>
+          <a class="primary-button" href="#products">اكتشف المجموعة</a>
+        </div>
+        <div class="hero-card" aria-label="مجموعة Menzio">
+          <div class="hero-mark">M</div>
+          <p>NEW COLLECTION</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">COLLECTION</p><h2>المنتجات</h2></div>
+          <p>اختر القطعة المناسبة لك.</p>
+        </div>
+        <div class="products" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section dark" id="about">
+      <div class="container about-grid">
+        <div><p class="eyebrow">WHY MENZIO</p><h2>مصمم للرجل العصري.</h2></div>
+        <div class="features">
+          <article><strong>01</strong><h3>راحة</h3><p>تصميم عملي للحركة والراحة اليومية.</p></article>
+          <article><strong>02</strong><h3>جودة</h3><p>نركز على خامات وتشطيبات مناسبة للاستخدام اليومي.</p></article>
+          <article><strong>03</strong><h3>بساطة</h3><p>تصميم نظيف وألوان سهلة التنسيق.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-box">
+        <p class="eyebrow">CONTACT</p>
+        <h2>جاهز لطلبك؟</h2>
+        <p>هذه النسخة مجهزة كبداية للمتجر. سنضيف بيانات المنتجات والدفع والتوصيل الفعلية قبل الإطلاق.</p>
+        <a class="secondary-button" href="mailto:contact@menzio.store">تواصل مع Menzio</a>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header"><h2>سلة المشتريات</h2><button id="closeCart">×</button></div>
+    <div id="cartItems" class="cart-items"><p class="empty">السلة فارغة حاليًا.</p></div>
+    <div class="cart-footer"><div><span>المجموع</span><strong id="cartTotal">0 دج</strong></div><button class="primary-button" id="checkoutButton">متابعة الطلب</button></div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <footer><div class="container"><strong>MENZIO</strong><span>© 2026 Menzio. جميع الحقوق محفوظة.</span></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
