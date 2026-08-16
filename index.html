@@ -36,7 +36,7 @@
         <h3>بيانات التوصيل</h3>
         <p class="form-note">الدفع عند الاستلام • شركة التوصيل: كازي تور</p>
         <label>الاسم الكامل<input id="customerName" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" placeholder="اكتب اسمك الكامل"></label>
-        <label>رقم الهاتف<input id="customerPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="(?:0|\+213|00213)[5-7][0-9]{8}" maxlength="13" placeholder="مثال: 0550123456"></label>
+        <label>رقم الهاتف<input id="customerPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="(?:0[5-7][0-9]{8}|\+213[5-7][0-9]{8}|00213[5-7][0-9]{8})" maxlength="14" placeholder="مثال: 0550123456"></label>
         <label>الولاية<select id="wilaya" name="wilaya" required><option value="">اختر الولاية</option></select></label>
         <label>العنوان الكامل<textarea id="address" name="address" rows="3" required minlength="5" maxlength="250" placeholder="البلدية، الحي، الشارع، رقم المنزل..."></textarea></label>
         <div class="form-row"><label>المقاس<select id="size" name="size" required><option value="">اختر المقاس</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><label>الكمية<input id="quantity" name="quantity" type="number" min="1" max="20" value="1" readonly aria-readonly="true"></label></div>
