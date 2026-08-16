@@ -1,13 +1,13 @@
 const products=[
  {id:1,name:'حقيبة ظهر Menzio',price:4000,desc:'حقيبة ظهر عملية وأنيقة للاستخدام اليومي',image:'assets/product-1.jpg'},
- {id:2,name:'بوكسر رجالي ANIT UNDERWEAR',price:700,desc:'بوكسر رجالي أسود — منتج حقيقي',image:'assets/underwear-real-1.svg'},
+ {id:2,name:'بوكسر رجالي ANIT UNDERWEAR',price:700,desc:'بوكسر رجالي أسود — منتج حقيقي',images:['assets/underwear-1.svg','assets/underwear-real-1.svg']},
  {id:3,name:'منتج تجريبي 3',price:2400,desc:'سيتم استبدال هذا المنتج ببياناتك الحقيقية',symbol:'3'}
 ];
 const wilayas=['أدرار','الشلف','الأغواط','أم البواقي','باتنة','بجاية','بسكرة','بشار','البليدة','البويرة','تمنراست','تبسة','تلمسان','تيارت','تيزي وزو','الجزائر','الجلفة','جيجل','سطيف','سعيدة','سكيكدة','سيدي بلعباس','عنابة','قالمة','قسنطينة','المدية','مستغانم','المسيلة','معسكر','ورقلة','وهران','البيض','إليزي','برج بوعريريج','بومرداس','الطارف','تندوف','تيسمسيلت','الوادي','خنشلة','سوق أهراس','تيبازة','ميلة','عين الدفلى','النعامة','عين تموشنت','غرداية','غليزان','تيميمون','برج باجي مختار','أولاد جلال','بني عباس','إن صالح','إن قزام','تقرت','جانت','المغير','المنيعة'];
 const WHATSAPP='213792740889';
 let cart=[];
 const money=n=>new Intl.NumberFormat('fr-DZ').format(n)+' دج';
-function renderProducts(){document.getElementById('productGrid').innerHTML=products.map(p=>`<article class="product"><div class="product-image">${p.image?`<img src="${p.image}" alt="${p.name}">`:(p.symbol||'M')}</div><div class="product-body"><h3>${p.name}</h3><p>${p.desc}</p><div class="product-row"><span class="price">${money(p.price)}</span><button class="add" onclick="addToCart(${p.id})">أضف للسلة</button></div></div></article>`).join('')}
+function renderProducts(){document.getElementById('productGrid').innerHTML=products.map(p=>{const visual=p.images?`<div class="product-gallery">${p.images.map(src=>`<img src="${src}" alt="${p.name}">`).join('')}</div>`:(p.image?`<img src="${p.image}" alt="${p.name}">`:(p.symbol||'M'));return `<article class="product"><div class="product-image">${visual}</div><div class="product-body"><h3>${p.name}</h3><p>${p.desc}</p><div class="product-row"><span class="price">${money(p.price)}</span><button class="add" onclick="addToCart(${p.id})">أضف للسلة</button></div></div></article>`}).join('')}
 function addToCart(id){const item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({...products.find(x=>x.id===id),qty:1});renderCart();openCart()}
 function removeFromCart(id){cart=cart.filter(x=>x.id!==id);renderCart()}
 function renderCart(){const count=cart.reduce((s,x)=>s+x.qty,0),total=cart.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById('cartCount').textContent=count;document.getElementById('cartTotal').textContent=money(total);const box=document.getElementById('cartItems');box.innerHTML=cart.length?cart.map(x=>`<div class="cart-item"><div><h4>${x.name}</h4><small>${x.qty} × ${money(x.price)}</small></div><button class="remove" onclick="removeFromCart(${x.id})">حذف</button></div>`).join(''):'<p class="empty">السلة فارغة حاليًا.</p>'}
